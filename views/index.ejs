@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title></title>
+        <script type="text/javascript">
+        function changeImg(image){
+            var imghol = document.getElementById("imageHolder");
+            imghol.src = image;
+        }
+        </script>
+        <style>
+            a.button {
+                -webkit-appearance: button;
+                -moz-appearance: button;
+                appearance: button;
+                padding-top: 5px;
+                padding-right: 10px;
+                padding-bottom: 5px;
+                padding-left: 10px;
+                text-decoration: none;
+                color: initial;
+            }
+
+            #imageholder {
+                position: relative;
+                width: 50%;
+                height: 50%;
+                //z-index: 15;
+                //top: 50%;
+                //left: 50%;
+                //margin: 0 0 0 250;
+                margin: 0 auto 0 250;
+            }
+        </style>
+    </head>
+    <body>
+        <a href="/upload" class="button">Upload</a>
+        <br />
+        <br />
+        <ul>
+        <% for(var i=0; i<imglist.length; i++) { %>
+            <li>
+                <a href='<%= imglist[i] %>'>
+                    <%= imglist[i] %>
+                </a>
+            </li>
+        <% } %>
+        </ul>
+        <br/>
+        <br/>
+        <div class="imageholder"><img width="50%" height="50%" id="imageHolder" /></div>
+        <br>
+        <% for(var i=0; i<imglist.length; i++) { %>
+            <img width="60px" height="60px" src='<%= imglist[i] %>' onclick="changeImg('<%= imglist[i] %>');">
+            </img>
+        <% } %>
+    </body>
+</html>
